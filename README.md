@@ -11,9 +11,11 @@ Cette exercice sert à évaluer les compétences du candidat à la création d'u
 Livrable
 =========
 url : https://github.com/FlorianPaumier/exercice-usts.git
+
 Le candidat devra créer sa propre branche en partant de la master sous le format suivant: nom-prenom-YYYYMMDD ou YYYYMMDD est la date de passage du test (ex: dupont-jean-20180225) et pousser cette branche sur le repository.
 
 Pour vous connectez, il est nécessaire d'envoyer une demande de contribution aux projet. 
+
 Le candidat peut également fournir un fichier d'explications ou d'informations concernant sa réalisation sous la forme d'un README à déposer à la racine du projet.
 
 
