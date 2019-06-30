@@ -10,13 +10,14 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-
+/**
+ * @Route("/article", name="article")
+ */
 class ArticleController extends FOSRestController
 {
 /**
    * 
-   *  @Route("/article/{id}", name="article")
-   *
+   * @Rest\Get("/{id}")
    * @return JsonResponse
    */
     public function index($id)

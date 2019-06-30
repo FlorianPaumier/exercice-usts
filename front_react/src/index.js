@@ -10,6 +10,7 @@ import Home from "./containers/home/home";
 import Article from "./containers/article/article";
 import Register from "./containers/register/register";
 import Login from "./containers/login/login";
+import Logout from "./containers/logout/logout";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/logout" component={Logout} />
         <Route exact path="/" component={Home} />
         <Route exact path="/article/:id" component={Article} />
       </Switch>

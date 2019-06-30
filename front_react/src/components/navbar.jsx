@@ -27,6 +27,9 @@ export default class Hearder extends Component {
         {this.state.userName ? (
           <Nav className="offset-1">
             <h3>{" Hello, " + this.state.userName}</h3>
+            <Col>
+              <Nav.Link href="#/logout"> Logout</Nav.Link>
+            </Col>
           </Nav>
         ) : (
           <Nav>
