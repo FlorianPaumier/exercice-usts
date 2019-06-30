@@ -1,3 +1,7 @@
+Notes
+=====
+
+
 Exercice USTS
 =========================
 L'exercice se décompose en deux parties, une obligatoire et une optionnelle. La partie optionnelle comporte plusieurs fonctionnalités que le candidat pourra ne pas réaliser.

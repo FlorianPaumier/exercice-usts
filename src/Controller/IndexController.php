@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use App\Entity\Article;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,24 +15,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
     
 class IndexController extends FOSRestController
 {
-/**
-   * Lists all Movies.
-   * @Rest\Get("/")
-   *
-   * @return JsonResponse
+  /**
+   * @Rest\Get("/home")
    */
     public function index()
     {
-
-        $all_articles = $this->getDoctrine()
-        ->getRepository(Article::class)
-        ->findAll();     
-        //  return $this->json([
-        //      'code' => '0',
-        //      'data' => $all_articles
-        //  ]);
-        return $this->handleView($this->view($all_articles));
+         $all_articles = $this->getDoctrine()
+         ->getRepository(Article::class)
+         ->findAll();
+         $res = $this->handleView($this->view(
+           [
+             'code'=>0,
+             'data'=>$all_articles]));
+          return $res;
     }
-       
-   }
+}
 

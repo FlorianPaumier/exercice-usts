@@ -11,28 +11,19 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 
-  /**
-     * @Route("/article", name="article")
-     */
-
 class ArticleController extends FOSRestController
 {
 /**
    * 
-   * @Rest\Get("/{id}")
+   *  @Route("/article/{id}", name="article")
    *
    * @return JsonResponse
    */
     public function index($id)
     {
-
         $article = $this->getDoctrine()
         ->getRepository(Article::class)
-        ->findBy(['id'=>$id]);     
-    
+        ->findBy(['id'=>$id]);
         return $this->handleView($this->view($article));
     }
-       
-   }
-
-
+}
