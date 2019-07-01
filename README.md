@@ -12,7 +12,7 @@ Livrable
 =========
 url : https://github.com/FlorianPaumier/exercice-usts.git
 
-Le candidat devra créer sa propre branche en partant de la master sous le format suivant: nom-prenom-YYYYMMDD ou YYYYMMDD est la date de passage du test (ex: dupont-jean-20180225) et pousser cette branche sur le repository.
+Le candidat devra faire un fork puis faire une pull request lors pour la soumission du projet.
 
 Pour vous connectez, il est nécessaire d'envoyer une demande de contribution aux projet. 
 
@@ -50,8 +50,10 @@ En partant du projet cloné, vous devez faire fonctionner le projet et développ
 - Une page d'index listant les articles du site. (en se basant sur le jeu de données fourni)
 - Une page de visualisation d'un article. (accessible en cliquant sur l'article dans la page d'index)
 - Une gestion simple de connexion / inscription **Si cela n'est pas fait, la logique du traitement seras pris en compte**
-
-
+- Ajouter une gestion de tags simple sur les articles:
+    - un tag dispose au minimum d'un nom et un article peut être associé à aucun, un ou plusieurs tags
+- Ajouter une interface d'ajout/édition d'article simple
+    
 Le partie front est à la charge du candidat. Il pourra choisir l'environnement qu'il souhaiteras tant que le back-end est une API.
 
 Partie Optionnelle
@@ -59,13 +61,8 @@ Partie Optionnelle
 
 **Tous les éléments ci-après sont optionnels, ils ne sont pas ordonnés, vous pouvez les réaliser dans l'ordre que vous souhaitez s'il vous reste du temps après la partie obligatoire**
 
-- Ajouter une gestion de tags simple sur les articles:
-    - un tag dispose au minimum d'un nom et un article peut être associé à aucun, un ou plusieurs tags
+
 - Ajouter une gestion de tags plus poussée:
     - un tag dispose toujours au minimum d'un nom et un article peut toujours être associé à aucun, un ou plusieurs tags, mais il faut en plus enregistrer la date à laquelle un tag est ajouté à un article. (pas besoin de créer une interface de gestion d'ajout/édition d'article pour cela, la date pourra être renseignée directement via le jeu de données)
-- Ajouter une interface d'ajout/édition d'article simple:
-    - Pas besoin de sécuriser l'accès à l'interface, accessibles via des liens sur l'index ou la page de visualisation.
-- Ajouter une interface d'ajout/édition d'article plus poussée:
-    - Mêmes contraintes qu'au dessus mais cette fois sécurisée.
 - Ajouter l'envoi d'un mail lors de la sauvegarde d'un article
     - Il n'est pas nécessaire d'avoir codé l'interface d'ajout/édition des articles pour réaliser ce point, une méthode d'envoi de mail simulant l'action de sauvegarde peut suffire.
