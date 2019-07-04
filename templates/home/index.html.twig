@@ -3,13 +3,31 @@
 {% block title %}Hello !{% endblock %}
 
 {% block body %}
-    <h1>All articles from article's table : </h1>
+    <h1 class="text-center p-4">All articles from article's table : </h1>
+<table class="table container">
+    <thead class="thead-dark">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Content</th>
+        <th>Show</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
     {% for article in articles %}
-        <div>
-            <h2>{{ loop.index }} / {{ article.title }} - Category : {{ article.category.name }}</h2>
-            <p>{{ article.content }}</p>
-        </div>
+        <tr>
+            <td>{{ article.id }}</td>
+            <td>{{ article.title }}</td>
+            <td>{{ article.category.name }}</td>
+            <td>{{ article.content }}</td>
+            <td><a href="">Show</a></td>
+            <td><a href=""><i class="far fa-edit btn mt-3"></i></a></td>
+        </tr>
     {% else %}
         <p>Aucun article trouvé.</p>
     {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
