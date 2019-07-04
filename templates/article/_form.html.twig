@@ -20,12 +20,12 @@
         {{ form_errors(form.content) }}
     </div>
 
-<div class="col-6 d-inline-block">
-    {{ form_label(form.tags, 'Tags') }}
-    {{ form_widget(form.tags, ({'attr': {'class': 'CUSTOM_LABEL_CLASS'}})) }}
-    {{ form_errors(form.tags) }}
-</div>
+    <div class="col-6 d-inline-block">
+        {{ form_label(form.tags, 'Tags') }}
+        {{ form_widget(form.tags, ({'attr': {'class': 'CUSTOM_LABEL_CLASS'}})) }}
+        {{ form_errors(form.tags) }}
     </div>
+</div>
 
 <div class="text-center">
     <button class="btn">{{ button_label|default('Save') }}</button>
