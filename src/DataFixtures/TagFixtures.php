@@ -19,6 +19,7 @@ class TagFixtures extends Fixture implements DependentFixtureInterface
         for ($i=0; $i < 5; $i++) {
             $tag = new Tag();
             $tag->setName($faker->word);
+
             $manager->persist($tag);
             //$tag->setArticle($this->getReference('article_0'));
 

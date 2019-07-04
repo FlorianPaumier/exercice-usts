@@ -22,7 +22,8 @@ class ArticleType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'class' => Tag::class,
-                'choice_label' => 'name']);
+                'choice_label' => 'name']
+            );
         ;
     }
 
