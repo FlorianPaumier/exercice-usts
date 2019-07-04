@@ -1,8 +1,8 @@
-{% extends 'layoutMail.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Mail{% endblock %}
 
 {% block body %}
-    <p>L'article {{ article.title }} vient d'être ajouté</p>
-    <p>Cliquez sur le lien pour voir le details<a href="{{ path('article_show', {'id': article.id}) }}">Article</a></p>
+    <p> The article : {{ article.title }} has just been added !</p>
+    <p>Check it out here : <a href="{{ path('article_show', {'id': article.id}) }}">Article</a></p>
 {% endblock %}
