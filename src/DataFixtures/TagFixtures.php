@@ -16,7 +16,7 @@ class TagFixtures extends Fixture implements DependentFixtureInterface
         // On configure dans quelles langues nous voulons nos données
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 5; $i++) {
             $tag = new Tag();
             $tag->setName($faker->word);
             $manager->persist($tag);
