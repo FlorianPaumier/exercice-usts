@@ -52,7 +52,8 @@ Encore
         useBuiltIns: 'usage',
         corejs: 3
     })
-
+    .copyFiles({from:'./assets/images'}
+    )
     // enables Sass/SCSS support
     .enableSassLoader()
 
