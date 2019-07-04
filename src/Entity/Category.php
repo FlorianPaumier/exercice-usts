@@ -19,6 +19,8 @@ class Category
     private $id;
 
     /**
+     * @Assert\Length(max=255)
+     * @Assert\NotNull()
      * @ORM\Column(type="string", length=255)
      */
     private $name;

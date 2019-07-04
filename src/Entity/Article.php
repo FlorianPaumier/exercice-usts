@@ -19,11 +19,14 @@ class Article
     private $id;
 
     /**
+     * @Assert\Length(max=255)
+     * @Assert\NotNull()
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @Assert\NotNull()
      * @ORM\Column(type="text")
      */
     private $content;
