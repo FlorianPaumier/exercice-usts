@@ -54,7 +54,8 @@ En partant du projet cloné, vous devez faire fonctionner le projet et développ
     - un tag dispose au minimum d'un nom et un article peut être associé à aucun, un ou plusieurs tags
 - Ajouter une interface d'ajout/édition d'article simple
     
-Le partie front est à la charge du candidat. Il pourra choisir l'environnement qu'il souhaiteras tant que le back-end est une API.
+Le partie front est à la charge du candidat (l'utilisation de Twig pour le front est interdit).
+Il pourra choisir l'environnement qu'il souhaiteras tant que le back-end est une API.
 
 Partie Optionnelle
 =========
