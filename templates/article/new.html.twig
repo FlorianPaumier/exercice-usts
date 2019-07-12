@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Article{% endblock %}
+
+{% block body %}
+    <h1 class="text-center p-4">Create new Article</h1>
+
+    <div class="container pt-lg-4 mb-lg-4">
+        <div class="col text-center">
+            {{ include('article/_form.html.twig') }}
+            <a href="{{ path('home_index') }}">back to list</a>
+        </div>
+    </div>
+{% endblock %}

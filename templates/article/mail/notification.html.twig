@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mail{% endblock %}
+
+{% block body %}
+    <p> The article : {{ article.title }} has just been added !</p>
+    <p>Check it out here : <a href="{{ path('article_show', {'id': article.id}) }}">Article</a></p>
+{% endblock %}
