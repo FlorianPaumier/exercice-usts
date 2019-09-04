@@ -8,10 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController
 {
-    /**
-     * @Route("/", name="homepage")
-     * Show all articles
-     */
     public function indexAction(Request $request)
     {
         // replace this example code with whatever you need

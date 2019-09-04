@@ -1,0 +1,19 @@
+<div class="container justify-content-center" fxLayout="row wrap">
+    <mat-card class="card" *ngFor="let article of articles">
+        <mat-card-title>{{article.title}}</mat-card-title>
+        <mat-card-subtitle>{{article.category}}</mat-card-subtitle>
+        <button mat-raised-button class="mr-3">
+            <a  class="black" routerLink="articles/{{article.id}}">
+                Read
+            </a>
+        </button>
+        <button mat-raised-button color="primary" class="mr-3">
+            <a routerLink="articles/edit/{{article.id}}">
+                Edit
+            </a>
+        </button>
+        <button (click)="onClick(article.id)" mat-raised-button color="warn">
+            Delete
+        </button>
+    </mat-card>
+</div>
