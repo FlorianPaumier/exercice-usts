@@ -161,6 +161,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v2.8.0"
     },
+    "m6web/fos-rest-extra-bundle": {
+        "version": "v2.3.1"
+    },
     "ocramius/package-versions": {
         "version": "1.4.0"
     },
