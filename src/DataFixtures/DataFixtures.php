@@ -1,17 +1,14 @@
 <?php
 
-namespace AppBundle\DataFixtures\ORM;
+namespace App\DataFixtures;
 
-use AppBundle\Entity\Category;
+use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use AppBundle\Entity\Article;
+use App\Entity\Article;
 
-class LoadArticlesData extends Fixture
+class DataFixtures extends Fixture
 {
-    /**
-     * {@inheritDoc}
-     */
     public function load(ObjectManager $manager)
     {
 
