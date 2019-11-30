@@ -1,6 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticleController!{% endblock %}
 
 {% block body %}
 <style>
@@ -8,13 +7,17 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello ! ✅</h1>
+{% for article in articles %}
+    <article>
+        <h3> {{article.title}} </h3>
+        <div class="content">
+            {{article.content | raw}}
+            <img src="{{article.image}}"/>
+        </div>
+        <a href="path('')" class="btn btn-primary"> Read more</a>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/exercice-usts/src/Controller/ArticleController.php'|file_link(0) }}">src/Controller/ArticleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Program Files (x86)/EasyPHP-DevServer-14.1VC11/data/localweb/exercice-usts/templates/article/index.html.twig'|file_link(0) }}">templates/article/index.html.twig</a></code></li>
-    </ul>
-</div>
+    </article>
+
+{% endfor %}
+
 {% endblock %}
