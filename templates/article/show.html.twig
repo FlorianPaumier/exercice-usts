@@ -7,17 +7,12 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-{% for article in articles %}
     <article>
-        <h3> {{article.title}} </h3>
+        <h1> {{article.title}} </h1>
         <div class="content">
             {{article.content | raw}}
             <img src="{{article.image}}"/>
         </div>
-        <a href="{{ path('show_article', {'id' : article.id}) }}" class="btn btn-primary"> Read more</a>
     </article>
     </br>
-
-{% endfor %}
-
 {% endblock %}
