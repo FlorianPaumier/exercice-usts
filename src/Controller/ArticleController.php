@@ -29,7 +29,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/add", name="add_article")
      */
-    public function addArticle(Request $request){
+    public function addArticle(Request $request, ObjectManager $manager){
         $article = new Article();
         $form = $this->createFormBuilder($article)
                     ->add('title', TextType::class)
@@ -39,7 +39,14 @@ class ArticleController extends AbstractController
                         'label' => 'Add article'
                     ])
                     ->getForm();
+        
+        if($form->isSubmitted() && $form->isValid()){
+            $article->setCategory('Category1');
+            $manager->persist($article);
+            $manager->flush();
 
+            return $this->RedirectToRoute('show_article', ['id' => $article->getId()]);
+        }
 
         return $this->render('article/add.html.twig', [
             'formArticle' => $form->createView()
