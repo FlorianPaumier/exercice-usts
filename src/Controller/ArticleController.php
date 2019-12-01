@@ -10,6 +10,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ArticleController extends AbstractController
@@ -33,7 +34,7 @@ class ArticleController extends AbstractController
         $form = $this->createFormBuilder($article)
                     ->add('title', TextType::class)
                     ->add('content', TextAreaType::class)
-                    ->add('image', TextType::class)
+                    ->add('image', FileType::class)
                     ->add('submit', SubmitType::class, [
                         'label' => 'Add article'
                     ])
