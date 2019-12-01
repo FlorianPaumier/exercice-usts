@@ -5,8 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -29,19 +31,22 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/add", name="add_article")
      */
-    public function addArticle(Request $request, ObjectManager $manager){
+    public function addArticle(Request $request, CategoryRepository $catRepo){
         $article = new Article();
         $form = $this->createFormBuilder($article)
                     ->add('title', TextType::class)
                     ->add('content', TextAreaType::class)
-                    ->add('image', FileType::class)
+                    ->add('image', TextType::class)
                     ->add('submit', SubmitType::class, [
                         'label' => 'Add article'
                     ])
                     ->getForm();
         
+        $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            $article->setCategory('Category1');
+            $cat = $catRepo->find(11);
+            $article->setCategory($cat);
+            $manager = $this->getDoctrine()->getManager();
             $manager->persist($article);
             $manager->flush();
 
