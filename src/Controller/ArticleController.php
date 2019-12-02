@@ -7,12 +7,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ArticleController extends AbstractController
@@ -37,6 +40,15 @@ class ArticleController extends AbstractController
                     ->add('title', TextType::class)
                     ->add('content', TextAreaType::class)
                     ->add('image', TextType::class)
+                    ->add('category', EntityType::class, [
+                        'class' => Category::class,
+                        'query_builder' => function (EntityRepository $er) {
+                            return $er->createQueryBuilder('u');
+                        },
+                        'choice_label' => function ($category) {
+                            return $category->getName();
+                        }
+                    ])
                     ->add('submit', SubmitType::class, [
                         'label' => 'Add article'
                     ])
@@ -44,8 +56,6 @@ class ArticleController extends AbstractController
         
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-            $cat = $catRepo->find(11);
-            $article->setCategory($cat);
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($article);
             $manager->flush();
