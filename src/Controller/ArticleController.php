@@ -34,7 +34,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/article/add", name="add_article")
      */
-    public function addArticle(Request $request, CategoryRepository $catRepo){
+    public function addArticle(Request $request){
         $article = new Article();
         $form = $this->createFormBuilder($article)
                     ->add('title', TextType::class)
@@ -73,6 +73,42 @@ class ArticleController extends AbstractController
     public function showArticle(Article $article){
         return $this->render('article/show.html.twig',[
             'article' => $article
+        ]);
+    }
+    /**
+     * @Route("/article/update/{id}", name="update_article")
+     */
+    public function updateArticle(Request $request, Article $article){
+        $form = $this->createFormBuilder($article)
+                    ->add('title', TextType::class)
+                    ->add('content', TextAreaType::class)
+                    ->add('image', TextType::class)
+                    ->add('category', EntityType::class, [
+                        'class' => Category::class,
+                        'query_builder' => function (EntityRepository $er) {
+                            return $er->createQueryBuilder('u');
+                        },
+                        'choice_label' => function ($category) {
+                            return $category->getName();
+                        }
+                    ])
+                    ->add('submit', SubmitType::class, [
+                        'label' => 'Modify article'
+                    ])
+                    ->getForm();
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($article);
+            $manager->flush();
+            
+            return $this->RedirectToRoute('show_article', ['id' => $article->getId()]);
+        }
+
+        return $this->render('article/update.html.twig', [
+            'article' => $article,
+            'formArticle' => $form->createView()
         ]);
     }
 }
