@@ -8,12 +8,21 @@
 </style>
 
     <article>
-        <h1> {{article.title}} </h1>
+        <h1> {{article.title}} : {{article.category.name}} </h1>
+        
         <div class="content">
             {{article.content | raw}}
             <img src="{{article.image}}"/>
         </div>
+        <ul class="list-group">
+            {% for articleTag in article.tag %}
+                <li class="list-group-item">
+                    {{ articleTag.name }}
+                </li>
+            {% endfor %}
+        </ul>
     </article>
+    </br>
     <a href="{{ path('update_article', {'id' : article.id}) }}"><button class="btn btn-warning"> Modifier l'article </button></a>
     </br>
 {% endblock %}
