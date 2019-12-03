@@ -8,15 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Tag;
 use App\Repository\ArticleRepository;
-use App\Repository\CategoryRepository;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use App\Form\ArticleType;
 
 class ArticleController extends AbstractController
 {
@@ -36,23 +30,7 @@ class ArticleController extends AbstractController
      */
     public function addArticle(Request $request){
         $article = new Article();
-        $form = $this->createFormBuilder($article)
-                    ->add('title', TextType::class)
-                    ->add('content', TextAreaType::class)
-                    ->add('image', TextType::class)
-                    ->add('category', EntityType::class, [
-                        'class' => Category::class,
-                        'query_builder' => function (EntityRepository $er) {
-                            return $er->createQueryBuilder('u');
-                        },
-                        'choice_label' => function ($category) {
-                            return $category->getName();
-                        }
-                    ])
-                    ->add('submit', SubmitType::class, [
-                        'label' => 'Add article'
-                    ])
-                    ->getForm();
+        $form = $this->createForm(ArticleType::class, $article);
         
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -79,23 +57,7 @@ class ArticleController extends AbstractController
      * @Route("/article/update/{id}", name="update_article")
      */
     public function updateArticle(Request $request, Article $article){
-        $form = $this->createFormBuilder($article)
-                    ->add('title', TextType::class)
-                    ->add('content', TextAreaType::class)
-                    ->add('image', TextType::class)
-                    ->add('category', EntityType::class, [
-                        'class' => Category::class,
-                        'query_builder' => function (EntityRepository $er) {
-                            return $er->createQueryBuilder('u');
-                        },
-                        'choice_label' => function ($category) {
-                            return $category->getName();
-                        }
-                    ])
-                    ->add('submit', SubmitType::class, [
-                        'label' => 'Modify article'
-                    ])
-                    ->getForm();
+        $form = $this->createForm(ArticleType::class, $article);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
