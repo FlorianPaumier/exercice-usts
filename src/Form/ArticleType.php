@@ -33,8 +33,17 @@ class ArticleType extends AbstractType
                     return $category->getName();
                 }
             ])
-            ->add('tag', CollectionType::class, [
-                'entry_type' => Tag::class
+            ->add('tag', EntityType::class, [ 
+                'class' => Tag::class,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('u');
+                },
+                'choice_label' => function ($tag) {
+                    return $tag->getName();
+                },
+                'label'     => 'Tags : ',
+                'expanded'  => true,
+                'multiple'  => true,
             ])
             ->add('submit', SubmitType::class);
     }
