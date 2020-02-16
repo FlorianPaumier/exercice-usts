@@ -1,0 +1,19 @@
+post http://127.0.0.1:8000/articles
+content-Type: application/json
+
+{
+    "title": "titletitle",
+    "content": "contentcontent",
+    "image": "imageimage",
+    "Category": {
+        "name": "namename"
+    },
+    "tags": [
+        {
+            "nom": "bbbb"
+        },
+        {
+            "nom": "cccc"
+        }
+    ]
+}
