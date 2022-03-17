@@ -13,6 +13,6 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "swagger-ui": "^3.23.11"
+        "swagger-ui": "^4.1.3"
     }
 }
